@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Excuse Generator</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #f4f7fb;
+		}
+		.container {
+			background: white;
+			border-radius: 16px;
+			box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+			padding: 32px;
+			width: min(520px, 90vw);
+			text-align: center;
+		}
+		h1 {
+			margin: 0 0 16px;
+			color: #253858;
+		}
+		p.description {
+			margin: 0 0 24px;
+			color: #5c6b7c;
+		}
+		button {
+			border: none;
+			background: #0078d4;
+			color: white;
+			font-size: 1rem;
+			padding: 14px 22px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: background 0.2s ease;
+		}
+		button:hover {
+			background: #005a9e;
+		}
+		#excuse {
+			margin: 24px auto 0;
+			font-size: 1.1rem;
+			line-height: 1.6;
+			max-width: 450px;
+			color: #1f2937;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Excuse Generator</h1>
+		<p class="description">Need an excuse for being late, missing a call, or forgetting a deadline? Tap the button to get a new one.</p>
+		<button id="generateButton">Generate Excuse</button>
+		<div id="excuse">Press the button to get your excuse.</div>
+	</div>
+
+	<script>
+		const excuses = [
+			"My internet went out right when I was about to finish.",
+			"I got stuck helping a neighbor with an urgent problem.",
+			"The dog hid my keys and I couldn't leave until I found them.",
+			"My phone died and I didn't see the reminder.",
+			"Traffic was terrible because of an unexpected road closure.",
+			"I had to wait for a package delivery that only arrived late.",
+			"I woke up with a migraine and had to rest before responding.",
+			"There was a power outage in my area for a few hours.",
+			"I misunderstood the schedule and thought it was later.",
+			"I had a sudden family matter that needed my attention.",
+			"My calendar event didn't sync correctly with the app.",
+			"I lost track of time while working on an urgent task.",
+			"I was ready, but the car wouldn't start.",
+			"The alarm didn't go off because of a phone update.",
+			"I got caught in an unusually long line at the store.",
+			"My computer froze and I had to restart it.",
+			"I thought I had sent the message already, but it stayed in drafts.",
+			"I had an appointment overlap that I couldn't reschedule.",
+			"My weather app said it would be clear, and then it started pouring.",
+			"I was almost there when I realized I left an important file behind."
+		];
+
+		const button = document.getElementById('generateButton');
+		const excuseElement = document.getElementById('excuse');
+
+		function generateExcuse() {
+			const index = Math.floor(Math.random() * excuses.length);
+			excuseElement.textContent = excuses[index];
+		}
+
+		button.addEventListener('click', generateExcuse);
+	</script>
+</body>
+</html>
